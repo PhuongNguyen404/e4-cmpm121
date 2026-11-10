@@ -5,7 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neon Warden</title>
   </head>
+
   <body>
+    <main id="cabinet" class="cabinet" data-mode="title">
+      <aside class="panel panel-left" aria-label="Ship status">
+        <section class="readout">
+          <h2>Score</h2>
+          <output id="score">0000000</output>
+        </section>
+
+        <section class="readout">
+          <h2>Best</h2>
+          <output id="best">0000000</output>
+        </section>
+
+        <section class="readout">
+          <h2>Hull</h2>
+          <div id="lives" class="pips">
+            <span class="pip lit"></span>
+            <span class="pip lit"></span>
+            <span class="pip lit"></span>
+          </div>
+        </section>
+
+        <section class="readout">
+          <h2>Cannon</h2>
+          <div id="power" class="cells">
+            <span class="cell lit"></span>
+            <span class="cell"></span>
+            <span class="cell"></span>
+          </div>
+        </section>
+
+        <p class="badge">Self-play</p>
+      </aside>
+
+      <div class="screen">
+        <div id="game"></div>
+
+        <div id="banner" class="banner">
+          <strong></strong>
+          <span></span>
+        </div>
+
+        <p id="caption" class="caption"></p>
+      </div>
+
+      <aside class="panel panel-right" aria-label="Route">
+        <h2>Route</h2>
+
+        <ol id="route" class="route"></ol>
+
+        <section id="boss" class="boss" hidden>
+          <h2>Warden</h2>
+
+          <div class="boss-meter">
+            <span id="boss-fill"></span>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <p class="help">
+      Arrows or WASD to fly · Space or Z to fire · Wait at the title for self-play
+    </p>
+
+    <template id="route-stop-template">
+      <li class="stop" data-state="ahead">
+        <span class="stop-dot"></span>
+        <span class="stop-name"></span>
+      </li>
+    </template>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
